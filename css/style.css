@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+*{
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: Roboto;
+    -webkit-font-smoothing: antialiased;
+    color: #8892b0;
+    background: url(../sitebg2.jpg) no-repeat center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-mobile{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 9;
+}
+
+nav.mobile_nav{
+    background: #3ac9f5;
+    height: 60px;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(0,0,0,.2);
+}
+
+nav.mobile_nav ul{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: 100%;
+}
+
+nav.mobile_nav ul li{
+    cursor: pointer;
+    transition: .4s;
+}
+
+nav.mobile_nav ul li a{
+    display: block;
+    margin: 1rem;
+}
+
+nav.mobile_nav ul li a span{
+    position: absolute;
+    letter-spacing: .5px;
+    transform: translateX(-70px);
+    transition: all .4s;
+    opacity: 0;
+}
+
+nav.mobile_nav ul li a i {
+    font-size: 22px;
+    margin: 0 38px;
+    color: white;
+    transition: all .4s;
+}
+
+nav.mobile_nav ul li:hover a span{
+    transform: translateX(-55px);
+    opacity: 1;
+    color: black;
+    pointer-events: visible;
+}
+
+nav.mobile_nav ul li:hover a i{transform: translateX(-25px);
+}
+
+nav.mobile_nav ul li:hover{background: #2eacd3;
+}
+
+.fa-home, .fa-bell, .fa-hourglass-end{pointer-events: none;
+}
+
+.text-heading{
+    color: #C62C68;
+}
+
+.jumbotron {
+    background: white;
+    height: 100vh;
+}
+
+footer{
+	background-color: #0a192f;
+}
+
+.todo{
+    transition: all .5s ease;
+}
+
+.fa-trash{
+    pointer-events: none;
+}
+
+.countdown, .clockdiv {
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.countdown div, .clockdiv div {
+    padding: 1rem;
+    border: 1px #fff solid;
+    border-radius: 10px;
+    background: #000;
+    opacity: 0.7;
+    margin: 5px;
+}
+
+.countdown div:first-child {background: #0a192f;
+}
+
+.countdown span , .clockdiv span{
+    display: block;
+    font-size: 1rem;
+}
+
+
+
+.fall{
+    transform: translateY(8rem) rotateZ(20deg);
+    opacity: 0;
+}
