@@ -1,5 +1,13 @@
 function todoInput(){
 	const body = document.getElementById('body_content');
+    let todos;
+    if(localStorage.getItem('todos') === null){
+            todos = [];
+    }else {
+        todos = JSON.parse(localStorage.getItem('todos'));
+    }
+
+    console.log(todos)
 	body.innerHTML = `
 		<div class="container">
 		    <h3>Create To do List nOW</h3>
@@ -34,7 +42,7 @@ function todoInput(){
 		  	<div class="my-5">
 			  <div class="text-header d-flex flex-column text-center">
 			    <hr>
-			    <h4>Todo List</h4>
+			    <h4>Todo List ${todos ? todos.length : 0}</h4>
 			    <div data-aos="fade-right" data-aos-delay="600">
 			       <img src="notes.png" alt="" class="w-100 rounded" >
 			    </div>
@@ -50,7 +58,8 @@ function todoInput(){
 			        <button type="button" class="btn btn-danger"><i class="fas fa-trash"></i></button>
 			      </div>
 			      <div class="card-footer text-muted">
-			        <span class="tanggal">21 Oct 2020</span>//
+					<span class="tanggal">21 Oct 2020</span>
+					<i class="far fa-clock"></i>
 			        <span class="waktu">10:50</span>
 			      </div>
 			    </div>
@@ -92,7 +101,7 @@ function todoInput(){
           clearInterval(intvl);
           // Style and output text
           countdown.style.color = '#17a2b8';
-          countdown.innerHTML = 'Good Selesai...!';
+          countdown.innerHTML = '<h2>Selesai &nbsp <i class="fas fa-check text-success"></i></h2>';
       	}
   	}, 1000);
 

@@ -89,31 +89,48 @@ function todo(){
                     </div>
                     <div class="card-footer text-muted">
                         <span class="tanggal">${myTanggal}</span>
+                        <i class="far fa-clock"></i>
                         <span class="waktu">${myWaktu}</span>
                     </div>
                 </div>`;
 
         todoList.append(div);
+
+        alert(`berhasil menambahkan ${mySelect} pada todolist.`);
+
         initializeClock('.clockdiv', {myTanggal, myWaktu});
         let a = myObj.hari;
         let b = myObj.jam;
         let c = myObj.menit;
         saveLocalTodos({mySelect, myDeskripsi, myTanggal, myWaktu, a,b,c});
+
+        todoInputSelect.value= '';
+        todoInputTanggal.value = '';
+        todoInputWaktu.value = '';
+        todoInputDeskripsi.value= '';
     }
 
     todoList.addEventListener('click', deleteCheck);
     function deleteCheck(e){
         const item = e.target;
-        console.log(item);
         const todo = item.parentElement.parentElement.parentElement;
-        removeLocalTodos(todo);
 
-        if(item.classList.contains ("btn")){
-          todo.classList.add('fall');
-          todo.addEventListener('transitionend', ()=>{
-               todo.remove();
-          })
+        try{
+            removeLocalTodos(todo);
+            if(item.classList.contains ("btn")){
+                todo.classList.add('fall');
+                todo.addEventListener('transitionend', ()=>{
+                    todo.remove();
+                    console.log('yes');
+                    alert(`berhasil menghapus dari todolist.`);
+                })
+            }
         }
+        catch{
+            alert(`Gagal menghapus dari todolist.`);
+        }
+
+       
     }
 
     function saveLocalTodos(todo){
